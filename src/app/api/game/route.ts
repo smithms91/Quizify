@@ -15,7 +15,6 @@ export async function POST(req: Request, res: Response) {
       return NextResponse.json({ error: 'You are not logged in' }, { status: 401 });
     }
 
-
     const body = await req.json();
     const { amount, topic, type } = quizCreationSchema.parse(body);
     const game = await prisma.game.create({
